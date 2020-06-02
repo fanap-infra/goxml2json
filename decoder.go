@@ -96,7 +96,8 @@ func (dec *Decoder) Decode(root *Node) error {
 				if _, ok := dec.excludeAttrs[a.Name.Local]; ok {
 					continue
 				}
-				elem.n.AddChild(dec.attributePrefix+a.Name.Local, &Node{Data: a.Value})
+				// elem.n.AddChild(dec.attributePrefix+a.Name.Local, &Node{Data: a.Value})
+				elem.n.AddChild(a.Name.Local, &Node{Data: a.Value})
 			}
 		case xml.CharData:
 			// Extract XML data (if any)
